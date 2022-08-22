@@ -4,8 +4,8 @@
             <h2 class="page-title"><?php echo get_sub_field('sayfa_basligi'); ?></h2>
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="https://opdrmuammerkaya.com">Ana Sayfa</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Hakkımızda</li>
+                    <li class="breadcrumb-item"><a href="<?php get_bloginfo('url'); ?>"><?php pll_e( 'anasayfa' );?></a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><?php pll_e( 'hakkimizda' );?></li>
                 </ol>
             </nav>
         </div>

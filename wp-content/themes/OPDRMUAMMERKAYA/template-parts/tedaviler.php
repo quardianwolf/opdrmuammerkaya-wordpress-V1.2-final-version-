@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="banner-content">
                     <h3 class="banner-title">
-                        Tedaviler
+                    <?php pll_e( 'tedavi-1' );?>
                     </h3>
                     <div class="review-carousel owl-carousel owl-simple" data-toggle="owl" data-owl-options='{
 									"nav": false,

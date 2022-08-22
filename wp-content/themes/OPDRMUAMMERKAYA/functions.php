@@ -121,6 +121,12 @@ define('ALLOW_UNFILTERED_UPLOADS', true);
     pll_register_string( 'randevu', 'randevu', 'WordPress', true);
     pll_register_string( 'tedavi', 'tedavi', 'WordPress', true);
     pll_register_string( 'tedavi-link', 'tedavi-link', 'WordPress', true);
+    pll_register_string( 'tedavi-1', 'tedavi-1', 'WordPress', true);
+    pll_register_string( 'anasayfa', 'anasayfa', 'WordPress', true);
+    pll_register_string( 'hakkimizda', 'hakkimizda', 'WordPress', true);
+    pll_register_string( 'kurumsal', 'kurumsal', 'WordPress', true);
+    pll_register_string( 'ekibimiz', 'ekibimiz', 'WordPress', true);
+    pll_register_string( 'iletisim', 'iletisim', 'WordPress', true);
 ?>
 
  

@@ -155,7 +155,7 @@
 
 
                                     <?php while (have_rows('whatsapp')) : the_row(); ?>
-                                        <a href="<?php echo get_sub_field('telefon'); ?>" class="btn btn-sm btn-whatsapp-color ls-0 btn-login">
+                                        <a href="https://wa.me/<?php echo get_sub_field('telefon'); ?>" class="btn btn-sm btn-whatsapp-color ls-0 btn-login">
                                             <span>WhatsApp</span>
                                         </a>
                                     <?php endwhile; ?>

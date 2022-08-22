@@ -4,68 +4,74 @@
         <footer class="footer bg-primary-color">
             <div class="container">
                 <div class="footer-top">
-                    <div class="row d-flex align-items-center justify-content-center">
-                        <div class="col-lg-6 col-sm-7 col-10">
-                            <a href="<?php bloginfo('url') ?>" class="logo">
-                                <img src="/wp-content/themes/OPDRMUAMMERKAYA/img/logo_white.png" alt="Muammer Kaya" width="280" height="auto">
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-sm-7 col-10 d-lg-flex justify-content-lg-end">
-                            <div class="social-links">
-                                <a href="https://www.instagram.com/op.dr.muammerkaya/" class="social-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-                                <a href="https://www.facebook.com/opdr.muammerkaya/" class="social-link"><i class="fab fa-facebook"></i><span>Facebook</span></a>
+                    <?php while (have_rows('iletisim', 'voobi_options')) : the_row(); ?>
+                        <div class="row d-flex align-items-center justify-content-center">
+                            <div class="col-lg-6 col-sm-7 col-10">
+                                <a href="<?php bloginfo('url') ?>" class="logo">
+                                    <img src="/wp-content/themes/OPDRMUAMMERKAYA/img/logo_white.png" alt="Muammer Kaya" width="280" height="auto">
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-sm-7 col-10 d-lg-flex justify-content-lg-end">
+                                <?php while (have_rows('sosyal_medya')) : the_row(); ?>
+                                    <div class="social-links">
+                                        <a href="<?php echo get_sub_field('instagram'); ?>" class="social-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                                        <a href="<?php echo get_sub_field('facebook'); ?>" class="social-link"><i class="fab fa-facebook"></i><span>Facebook</span></a>
+                                    </div>
+                                <?php endwhile; ?>
                             </div>
                         </div>
-                    </div>
+                    <?php endwhile; ?>
                 </div>
                 <div class="footer-middle d-none d-lg-block">
                     <div class="container">
                         <div class="row d-flex justify-content-center">
+                            <?php $query = new WP_Query(array(
+                                'post_type' => 'tedaviler',
+                                'post_status' => 'publish'
+                            )); ?>
                             <div class="col-lg-8 col-sm-12">
                                 <div class="info-box">
-                                    <h6 class="info-title" style="font-size: 25px !important; ">Tedaviler</h6>
+                                    <h6 class="info-title" style="font-size: 25px !important; "><?php pll_e('tedavi-1'); ?></h6>
                                     <div class="row">
                                         <div class="col-6">
+
                                             <ul class="info-list">
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/cilt-yenileme-tedavisi.html" class="info-link">Cilt Yenileme Tedavisi</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/kirisiklik-tedavisi.html" class="info-link">Kırışıklık Tedavisi</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/thulium-tedavisi.html" class="info-link">Thulium Lazer</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/burun-dolgusu.html" class="info-link">Burun Dolgusu</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/akilli-dolgu.html" class="info-link">Akıllı Dolgu</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/altin-igne.html" class="info-link">Altın İğne Tedavisi</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/medikal-ciltbakim.html" class="info-link">Medikal Cilt Bakımı</a></li>
+                                                <?php while ($query->have_posts()) :  $query->the_post(); ?>
+                                                    <li><a href="<?php echo get_the_permalink() ?>" class="info-link"><?php echo get_the_title() ?></a></li>
+                                                <?php endwhile;
+                                                wp_reset_query();
+                                                ?>
                                             </ul>
-                                        </div>
-                                        <div class="col-6">
-                                            <ul class="info-list">
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/mezoterapi-uygulamalari.html" class="info-link">Mezoterapi Uygulamaları</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/leke-tedavisi.html" class="info-link">Leke Tedavisi</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/dudak-dolgusu.html" class="info-link">Dudak Dolgusu</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/yanak-dolgusu.html" class="info-link">Yanak Dolgusu</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/bolgesel-zayiflama.html" class="info-link">Bölgesel Zayıflama</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/ip-uygulamasi.html" class="info-link">İp Uygulamaları</a></li>
-                                                <li><a href="/wp-content/themes/OPDRMUAMMERKAYA/pages/lazer.html" class="info-link">Lazer Epilasyon</a></li>
-                                            </ul>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-12">
+                            <?php while (have_rows('iletisim', 'voobi_options')) : the_row(); ?>
                                 <div class="info-box">
-                                    <h6 class="info-title" style="font-size: 25px !important; ">İletişim</h6>
-                                    <ul class="info-list">
+                                    <h6 class="info-title" style="font-size: 25px !important; "><?php pll_e('iletisim'); ?></h6>
+                                    <ul class="info-list"> 
+                                                                          
                                         <li class="info-link"><i style="margin-right: 10px;" class="fa fa-home"></i>
-                                            Aydınevler Mahallesi, Hasan Ali Yücel <br>
-                                            Caddesi, No: 7/1 Manavgat / Antalya</li>
-                                        <li class="info-link"><i style="margin-right: 17px;" class="fa fa-mobile-alt"></i>
-                                            <a style="text-decoration: none; color: white;" href="tel://0532 058 58 79">0532 058 58 79</a>
+                                            <?php echo get_sub_field('adres'); ?>
                                         </li>
-                                        <li class="info-link"><i style="margin-right: 10px;" class="fa fa-phone-alt"></i> <a style="text-decoration: none; color: white;" href="tel:0242 746 06 00">0242 746 06 00</a></li>
+                                        <?php while(have_rows('telefonlar')): the_row(); ?>    
+                                        <li class="info-link"><i style="margin-right: 17px;" class="fa fa-mobile-alt"></i>
+                                            <a style="text-decoration: none; color: white;" href="tel://<?php echo get_sub_field('telefon'); ?>"><?php echo get_sub_field('telefon'); ?></a>
+                                        </li>
+                                        <?php endwhile; ?>
+                                        <?php while(have_rows('whatsapp')): the_row(); ?>
+                                        <li class="info-link"><i style="margin-right: 17px;" class="fa fa-mobile-alt"></i> 
+                                            <a style="text-decoration: none; color: white;" href="tel://<?php echo get_sub_field('telefon'); ?>"><?php echo get_sub_field('telefon'); ?></a>                                      
+                                        </li>
+                                        <?php endwhile; ?>
                                         <li class="info-link"><i style="margin-right: 10px;" class="fa fa-envelope"></i>
-                                            <a style="text-decoration: none; color: white;" href="mailto:info@opdrmuammerkaya.com">info@opdrmuammerkaya.com</a>
+                                            <a style="text-decoration: none; color: white;" href="mailto:<?php echo get_sub_field('eposta'); ?>"><?php echo get_sub_field('eposta'); ?></a>
                                         </li>
                                     </ul>
                                 </div>
+                                <?php endwhile; ?>
                             </div>
                         </div>
                     </div>
@@ -96,7 +102,7 @@
                     <ul class="mobile-menu">
 
                         <li>
-                            <a href="<?php bloginfo('url') ?>">Ana Sayfa</a>
+                            <a href="<?php bloginfo('url') ?>"><?php pll_e('anasayfa'); ?></a>
                         </li>
                         <li>
                             <a href="#">Kurumsal<i class="fas fa-caret-down"></i></a>
@@ -156,47 +162,62 @@
 
             </div>
         </div>
-        <div class="modal" style="z-index: 99999;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Randevu Alın</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                        <form style="padding: 1rem 4rem" action="#" method="post" class="contact-form-7">
-                            <input type="hidden" [contact-form-7 id="13" title="Contact form 1_copy" ]>
-                            <div class="input-group input-light">
-                                <h6 class="input-title">İsim</h6>
-                                <input type="text" name="name" class="form-control" placeholder="İsim">
+        <?php while (have_rows('')) : the_row(); ?>
+            <div class="popup" style="position: fixed;top: 0;left: 0;height: 100%;width: 100%;display: flex;align-items: center;justify-content: center;z-index: 9999;background: rgba(0,0,0,0.5);">
+                <div class="popup-wrapper" style="background-color: #fff; padding: 30px; border-radius: 5px;">
+                    <div class="close"><i class="fa fa-window-close"></i></div>
+                    <div role="form" class="wpcf7" id="wpcf7-f497-o1" lang="en-US" dir="ltr">
+                        <div class="screen-reader-response">
+                            <p role="status" aria-live="polite" aria-atomic="true"></p>
+                            <ul></ul>
+                        </div>
+                        <form action="/#wpcf7-f497-o1" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+                            <div style="display: none;">
+                                <input type="hidden" name="_wpcf7" value="497">
+                                <input type="hidden" name="_wpcf7_version" value="5.6.2">
+                                <input type="hidden" name="_wpcf7_locale" value="en_US">
+                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f497-o1">
+                                <input type="hidden" name="_wpcf7_container_post" value="0">
+                                <input type="hidden" name="_wpcf7_posted_data_hash" value="">
                             </div>
-                            <div class="input-group input-light">
-                                <h6 class="input-title">Konu</h6>
-                                <input type="text" name="title" class="form-control" placeholder="Konu">
-                            </div>
-                            <div class="input-group input-light">
-                                <h6 class="input-title">Eposta</h6>
-                                <input type="email" name="email" class="form-control" placeholder="example@gmail.com">
-                            </div>
-                            <div class="input-group input-light">
-                                <h6 class="input-title">Telefon</h6>
-                                <input type="text" name="phone" class="form-control" placeholder="000-000-0000">
-                            </div>
-                            <div class="input-group input-light">
-                                <h6 class="input-title">Mesaj</h6>
-                                <textarea rows="5" name="message" class="form-control"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-secondary-color btn-form">
-                                <span>Gönder</span>
-                            </button>
+                            <?php while (have_rows('')) : the_row(); ?>
+                                <div class="modal-body">
+                                    <div class="input-group input-light">
+                                        <h6 class="input-title"><?php echo get_sub_field('isim'); ?></h6>
+                                        <p> <span class="wpcf7-form-control-wrap" data-name="your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text form-control" aria-invalid="false" placeholder="<?php echo get_sub_field('isim'); ?>"></span>
+                                        </p>
+                                    </div>
+                                    <div class="input-group input-light">
+                                        <h6 class="input-title"><?php echo get_sub_field('konu'); ?></h6>
+                                        <p> <span class="wpcf7-form-control-wrap" data-name="your-subject"><input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="<?php echo get_sub_field('konu'); ?>"></span>
+                                        </p>
+                                    </div>
+                                    <div class="input-group input-light">
+                                        <h6 class="input-title"><?php echo get_sub_field('eposta'); ?></h6>
+                                        <p> <span class="wpcf7-form-control-wrap" data-name="your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form-control" aria-required="true" aria-invalid="false" placeholder="<?php echo get_sub_field('eposta'); ?>"></span>
+                                        </p>
+                                    </div>
+                                    <div class="input-group input-light">
+                                        <h6 class="input-title"><?php echo get_sub_field('telefon'); ?></h6>
+                                        <p><span class="wpcf7-form-control-wrap" data-name="your-tel"><input type="tel" name="your-tel" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel form-control" aria-required="true" aria-invalid="false" placeholder="<?php echo get_sub_field('telefon'); ?>"></span>
+                                        </p>
+                                    </div>
+                                    <div class="input-group input-light">
+                                        <h6 class="input-title"><?php echo get_sub_field('mesaj'); ?></h6>
+                                        <p> <span class="wpcf7-form-control-wrap" data-name="your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="<?php echo get_sub_field('mesaj'); ?>"></textarea></span>
+                                        </p>
+                                    </div>
+                                    <p><button type="submit" class="btn btn-secondary-color btn-form"><br>
+                                            <span><?php echo get_sub_field('gonder'); ?></span><br>
+                                        </button></p>
+                                </div>
+                            <?php endwhile; ?>
+                            <div class="wpcf7-response-output" aria-hidden="true"></div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php endwhile; ?>
 
 
 

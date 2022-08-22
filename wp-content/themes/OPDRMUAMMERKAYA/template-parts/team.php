@@ -1,10 +1,10 @@
 <div class="page-header bg-more-light">
     <div class="container">
-        <h2 class="page-title">Ekibimiz</h2>
+        <h2 class="page-title"><?php pll_e( 'ekibimiz' );?></h2>
         <nav aria-label="breadcrumb" class="breadcrumb-nav">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="https://opdrmuammerkaya.com">Ana Sayfa</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Ekibimiz</li>
+                <li class="breadcrumb-item"><a href="<?php get_bloginfo('url'); ?>"><?php pll_e( 'anasayfa' );?></a></li>
+                <li class="breadcrumb-item active" aria-current="page"><?php pll_e( 'ekibimiz' );?></li>
             </ol>
         </nav>
     </div>

@@ -5,7 +5,7 @@
             <h2 class="page-title"></h2>
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?php bloginfo('url') ?>">Ana Sayfa</a></li>
+                    <li class="breadcrumb-item"><a href="<?php bloginfo('url') ?>"><?php pll_e( 'anasayfa' );?></a></li>
                     <li class="breadcrumb-item"><a href="<?php pll_e( 'tedavi-link' );?>"><?php pll_e( 'tedavi' );?></a></li>
                     <li class="breadcrumb-item active" aria-current="page"><?php echo the_title(); ?>
                     </li>
@@ -41,7 +41,7 @@
         )); ?>
         <div class="side-bar">
             <div class="sidebar-box">
-                <h4 class="box-title">Tedaviler</h4>
+                <h4 class="box-title"><?php pll_e( 'tedavi-1' );?></h4>
                 <div class="box-content mt-0">
                     <ul class="cat-menu ls-20">
                         <?php while ($query->have_posts()) :  $query->the_post(); ?>

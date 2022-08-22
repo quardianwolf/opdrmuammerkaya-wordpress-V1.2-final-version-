@@ -13,7 +13,7 @@
                         <ul class="top-menu">
                         <?php while(have_rows('sosyal_medya')): the_row();?>    
                             <li><a href="<?php echo get_sub_field('instagram'); ?>" class="social-link" style="margin: 0 0 0 45px"><i class="fab fa-instagram"></i>Instagram</a></li>
-                            <li><a href="<?php echo get_sub_field('instagram'); ?>" class="social-link"><i class="fab fa-facebook"></i>Facebook</a></li>
+                            <li><a href="<?php echo get_sub_field('facebook'); ?>" class="social-link"><i class="fab fa-facebook"></i>Facebook</a></li>
                             <?php endwhile; ?>
                             <?php while(have_rows('diller')): the_row();?>    
                             <a style="margin: 0 0 0 15px; font-size: 15px;" href="<?php echo get_sub_field('tr'); ?>" class="social-icon">TR</a>
